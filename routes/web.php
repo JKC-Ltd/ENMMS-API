@@ -64,6 +64,15 @@ Route::middleware(['auth', 'admin:Admin'])->group(function () {
     registerCommonRoutes();
 });
 
+Route::get('/test-db', function () {
+    try {
+        \DB::connection()->getPdo();
+        return response()->json(['success' => true, 'message' => 'Database connection is working']);
+    } catch (\Exception $e) {
+        return response()->json(['success' => false, 'message' => 'Could not connect to the database', 'error' => $e->getMessage()], 500);
+    }
+});
+
 Route::middleware(['auth'])->group(function () {
     registerCommonRoutes();
 });

@@ -14,8 +14,8 @@ class SensorTypeSeeder extends Seeder
     public function run(): void
     {
         $value = [
-            ['id' => '1', 'description' => 'Single Phase Meter', 'sensor_type_code' => 'SPM', 'sensor_type_parameter' => 'voltage_ab,current_a,real_power,apparent_power,energy', 'created_at' => '2025-02-14 09:04:41', 'updated_at' => '2025-02-14 09:06:28', 'deleted_at' => NULL],
-            ['id' => '2', 'description' => 'Three Phase Meter', 'sensor_type_code' => 'TPM', 'sensor_type_parameter' => 'voltage_ab,voltage_bc,voltage_ca,current_a,current_b,current_c,real_power,apparent_power,energy', 'created_at' => '2025-02-14 09:05:34', 'updated_at' => '2025-02-14 09:06:21', 'deleted_at' => NULL],
+            ['id' => '1', 'description' => 'Single Phase Meter', 'sensor_type_code' => 'SPM', 'sensor_type_parameter' => 'voltage_ab,current_a,real_power,apparent_power,energy,power_factor', 'created_at' => '2025-02-14 09:04:41', 'updated_at' => '2025-02-14 09:06:28', 'deleted_at' => NULL],
+            ['id' => '2', 'description' => 'Three Phase Meter', 'sensor_type_code' => 'TPM', 'sensor_type_parameter' => 'voltage_ab,voltage_bc,voltage_ca,current_a,current_b,current_c,real_power,apparent_power,energy,power_factor', 'created_at' => '2025-02-14 09:05:34', 'updated_at' => '2025-02-14 09:06:21', 'deleted_at' => NULL],
             ['id' => '3', 'description' => 'Temperature & Humidity Sensor', 'sensor_type_code' => 'THS', 'sensor_type_parameter' => 'temperature,humidity', 'created_at' => '2025-02-14 09:06:13', 'updated_at' => '2025-02-14 09:06:13', 'deleted_at' => NULL],
             ['id' => '4', 'description' => 'Flow Meter', 'sensor_type_code' => 'FVM', 'sensor_type_parameter' => 'volume,flow', 'created_at' => '2025-02-14 09:07:05', 'updated_at' => '2025-02-14 09:07:05', 'deleted_at' => NULL],
             ['id' => '5', 'description' => 'Pressure Meter Guage', 'sensor_type_code' => 'PMG', 'sensor_type_parameter' => 'pressure', 'created_at' => '2025-02-14 09:07:28', 'updated_at' => '2025-02-14 09:07:28', 'deleted_at' => NULL],
