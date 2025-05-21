@@ -46,4 +46,12 @@ class SensorLogAPIController extends Controller
             'data' => $request->all()
         ]);
     }
+
+    public function getDate() {
+        // Get the current date and time in MMDDHHSSYYYY format
+        $date = date('mdHiY');
+        return response()->json([
+            'date' => $date
+        ]);
+    }
 }
