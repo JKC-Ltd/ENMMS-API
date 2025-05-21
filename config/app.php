@@ -123,4 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+
+    'sensor_api_token' => env('SENSOR_API_TOKEN'),
+
 ];
