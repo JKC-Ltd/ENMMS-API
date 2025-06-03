@@ -86,9 +86,10 @@ const processData = (data, refetch, chartID, dataOptions, columnName) => {
 
 
 const processPandPEnergyConsumption = () => {
-    const select = `DATE_FORMAT(reading_date, '%M %d, %Y') as reading_date, 
+    const select = `sensors.description as sensor_description,
+                    location_name,
                     ROUND(SUM((end_energy - start_energy)), 2) AS daily_consumption, 
-                    sensor_id`;
+                    DATE_FORMAT(reading_date, '%M %d, %Y') as reading_date`;
     const processUrl = "/getDailyEnergyConsumption";
     const chartName = "pandpEnergyConsumption";
     const column = "reading_date";
@@ -151,11 +152,11 @@ const processPandPEnergyConsumption = () => {
 
 const processDailyEnergyConsumptionPerMeter = () => {
 
-    const select = `description as sensor_description,
-                    location_id,
-                    sensor_id,
+    const select = `location_name,
+                    description as sensor_description,
                     reading_date,
-                    ROUND((end_energy - start_energy), 2) AS daily_consumption`;
+                    ROUND((end_energy - start_energy), 2) AS daily_consumption
+                    `;
     const processUrl = "/getEnergyConsumption";
     const chartName = "dailyEnergyConsumptionPerMeter";
     const column = "sensor_description";

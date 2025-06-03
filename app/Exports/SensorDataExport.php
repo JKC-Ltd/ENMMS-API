@@ -27,6 +27,8 @@ class SensorDataExport implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return $this->headers;
+        return array_map(function ($header) {
+            return ucwords(str_replace('_', ' ', $header));
+        }, $this->headers);
     }
 }

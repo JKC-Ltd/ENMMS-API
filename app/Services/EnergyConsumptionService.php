@@ -36,6 +36,7 @@ class EnergyConsumptionService
             ");
 
         $query->leftJoin('sensors', 'sensor_id', '=', 'sensors.id')
+            ->leftJoin('locations', 'location_id', '=', 'locations.id')
             ->orderBy('sensor_id')
             ->orderBy('reading_date');
 

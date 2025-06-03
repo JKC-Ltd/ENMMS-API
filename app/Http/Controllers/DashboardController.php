@@ -42,28 +42,23 @@ class DashboardController extends Controller
         $processUrl = $request->input('processUrl');
         $requestPayload = new Request($request->input('requestPayload'));
 
-        if (method_exists($this, $processUrl)) {
-            $data = $this->$processUrl($requestPayload);
+        $data = $this->$processUrl($requestPayload);
 
-            $dataResponse = $this->$processUrl($requestPayload);
+        $dataResponse = $this->$processUrl($requestPayload);
 
-            if ($dataResponse instanceof \Illuminate\Http\JsonResponse) {
-                $original = $dataResponse->getData(true); // `true` returns associative array
+        if ($dataResponse instanceof \Illuminate\Http\JsonResponse) {
+            $original = $dataResponse->getData(true); // `true` returns associative array
 
-                // Assuming your data is inside a `data` key (update if different)
-                $data = $original['data'] ?? $original;
-            } else {
-                $data = $dataResponse;
-            }
-
-            $headers = array_keys($data[0] ?? []);
-
-            return Excel::download(new SensorDataExport($data, $headers), 'sensor_data.csv', 'Csv', [
-                'Content-Type' => 'text/csv',
-            ]);
+            // Assuming your data is inside a `data` key (update if different)
+            $data = $original['data'] ?? $original;
         } else {
-            return response()->json(['error' => 'Invalid processUrl'], 400);
+            $data = $dataResponse;
         }
+
+        $headers = array_keys($data[0] ?? []);
+
+
+        return Excel::download(new SensorDataExport($data, $headers), 'sensor_data.csv');
     }
 
     public function getDailyEnergyConsumption(Request $request)
